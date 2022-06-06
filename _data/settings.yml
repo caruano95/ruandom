@@ -1,0 +1,12 @@
+menu:
+- {name: 'About',      url: 'about'}
+
+# Available social icons are powered by Font Awesome, so you can use any icon that they offer
+social:
+- {icon: 'instagram', link:  'https://www.instagram.com/_cruano/'}
+- {icon: 'envelope', link:   'mailto:carlos@ruandom.com'}
+
+# Customize site text
+pagination:
+  next_page: 'Siguiente'
+  previous_page: 'Atras'
