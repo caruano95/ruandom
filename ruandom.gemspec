@@ -5,6 +5,7 @@ Gem::Specification.new do |spec|
   spec.version       = "1.0.0"
   spec.authors       = ["Carlos Ruano"]
   spec.email         = ["carlos@ruandom.com"]
+  spec.summary       = "Carlos' personal site"
 
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_layouts|_includes|_sass)!i) }
