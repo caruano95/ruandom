@@ -10,7 +10,7 @@ My name is Carlos Ruano. I’m a Software Engineer with extensive experience tes
 
 ### Ohalo
 ### Software Engineer IV (Jan 2021 to now)
-In the beginning of 2022, I got the opportunity to join Ohalo, a very exciting startup that is leading the industry in classification of unstructured data. I joined the company as the first engineer in charge of quality assurance. Since then, I've been working on establishing the QA processes for the company as well as enabling everyone in the organization to contribute to and take shared responsibility for the quality of our products.
+Ohalo is a high-growth startup in the space of unstructured data discovery and classification, and I joined as the very first engineer in charge of quality assurance. When I first started in the company, the engineering org was a 12-person team including one of the founders, and we've quickly tripled the size of the team while at the same time improving all aspects of our product. Coming from big corporations meant that it was a big change in scenery for me, but also meant that I had a good idea of the direction we should take to improve. One of the very first things I did was cement the idea that QA was not a last-step quality check but rather all the improvements to the process itself which lead to a better quality product. 
 
 
 ### Rappi
