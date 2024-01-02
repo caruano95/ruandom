@@ -1,6 +1,6 @@
 ## Usage
 
-For local testing
+For local testing:
 ```
 bundle exec jekyll serve
 ```
