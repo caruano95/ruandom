@@ -1,0 +1,431 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Epilogue:wght@400;500&display=swap');
+
+:root {
+  --bg:           #F9F8F5;
+  --text:         #18181A;
+  --muted:        #8A8A85;
+  --border:       #E5E3DB;
+  --surface:      #F0EEE8;
+  --accent:       #2563EB;
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body:    'Epilogue', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 16px; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+
+img { display: block; max-width: 100%; }
+
+/* ─── Layout ─────────────────────────────────────────────── */
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+
+.site-header {
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: baseline;
+  gap: 1.25rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.header-name {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+
+.site-footer {
+  padding: 2.5rem 0;
+  margin-top: 6rem;
+  border-top: 1px solid var(--border);
+}
+
+.site-footer p {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ─── Homepage ───────────────────────────────────────────── */
+
+.hero {
+  padding: 5rem 0 4.5rem;
+}
+
+.hero-intro {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 3.5vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  max-width: 560px;
+  font-style: italic;
+  color: var(--text);
+}
+
+.rooms-nav {
+  border-top: 1px solid var(--border);
+}
+
+.room-item {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: opacity 0.12s ease;
+  cursor: pointer;
+}
+
+.room-item:hover { opacity: 0.55; }
+
+.room-item.room-soon { opacity: 0.4; pointer-events: none; }
+
+.room-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.2rem;
+  width: 5.5rem;
+  flex-shrink: 0;
+}
+
+.room-num {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.room-status {
+  font-size: 0.68rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.room-item.room-soon .room-status { color: var(--muted); }
+
+.room-body { flex: 1; }
+
+.room-name {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 0.3rem;
+}
+
+.room-desc {
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.room-caret {
+  font-size: 1.1rem;
+  color: var(--muted);
+  transition: transform 0.12s ease;
+  flex-shrink: 0;
+}
+
+.room-item:hover .room-caret { transform: translateX(5px); }
+
+/* ─── Garage page ────────────────────────────────────────── */
+
+.page-header {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 4rem;
+}
+
+.page-header .back {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  transition: opacity 0.12s;
+}
+.page-header .back:hover { opacity: 0.6; }
+
+.page-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.page-header .page-desc {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+  max-width: 400px;
+}
+
+/* Section nav */
+.section-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.85rem 0;
+  margin-bottom: 4rem;
+}
+
+.section-nav .container {
+  display: flex;
+  gap: 2rem;
+}
+
+.section-nav a {
+  font-size: 0.8rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: color 0.12s;
+}
+
+.section-nav a:hover,
+.section-nav a.active { color: var(--text); }
+
+/* Garage sections */
+.garage-section {
+  margin-bottom: 6rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.section-header .count {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* Owned cars grid */
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 3rem 2.5rem;
+}
+
+.car-card .car-photo {
+  aspect-ratio: 1 / 1;
+  background: var(--surface);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.car-card .car-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.car-card:hover .car-photo img { transform: scale(1.03); }
+
+.car-card .car-photo.no-photo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-card .car-photo.no-photo span {
+  font-size: 0.75rem;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.car-year {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.03em;
+}
+
+.car-name {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.6rem;
+}
+
+.car-note {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Rentals grid */
+.rentals-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.rental-card {
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.rental-photo {
+  aspect-ratio: 1 / 1;
+  background: var(--border);
+  overflow: hidden;
+}
+
+.rental-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.rental-card:hover .rental-photo img { transform: scale(1.03); }
+
+.rental-body {
+  padding: 1rem 1.1rem 1.25rem;
+}
+
+.rental-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.25rem;
+}
+
+.rental-where {
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.4rem;
+}
+
+.rental-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+/* Spotting list */
+.spots-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.spot-item {
+  display: grid;
+  grid-template-columns: 160px 1fr 180px;
+  gap: 1.75rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+}
+
+.spot-item:first-child { border-top: 1px solid var(--border); }
+
+.spot-photo {
+  aspect-ratio: 1 / 1;
+  background: var(--surface);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.spot-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.spot-item:hover .spot-photo img { transform: scale(1.04); }
+
+.spot-car {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+}
+
+.spot-note {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.spot-meta {
+  text-align: right;
+}
+
+.spot-location {
+  font-size: 0.82rem;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.spot-country {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+
+@media (max-width: 700px) {
+  .cars-grid { grid-template-columns: 1fr; }
+  .rentals-grid { grid-template-columns: repeat(2, 1fr); }
+  .spot-item { grid-template-columns: 1fr; gap: 0.75rem; }
+  .spot-photo { aspect-ratio: 16/9; }
+  .spot-meta { text-align: left; }
+  .room-meta { width: 3.5rem; }
+  .room-name { font-size: 1.4rem; }
+}
+
+@media (max-width: 480px) {
+  .rentals-grid { grid-template-columns: 1fr; }
+}
