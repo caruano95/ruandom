@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listening Room — ruandom</title>
+  <meta name="description" content="Concerts, shows, and things worth hearing live.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 92vw;
+      max-height: 92vh;
+      object-fit: contain;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+    }
+    .lightbox-close:hover { color: #fff; }
+    .zoomable { cursor: zoom-in; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">ruandom</a>
+      <span class="header-name">Carlos Ruano</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <a href="/" class="back">← Back</a>
+        <h1>Listening Room</h1>
+        <p class="page-desc">Concerts and shows, in no particular order.</p>
+      </div>
+    </div>
+
+    <section class="concerts-section">
+      <div class="container">
+        <div class="concerts-grid">
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/david_gilmour.jpeg" alt="David Gilmour">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">David Gilmour</p>
+              <p class="concert-venue">Intuit Dome, Los Angeles · 2024</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/romany_gilmour.jpeg" alt="Romany Gilmour">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Romany Gilmour</p>
+              <p class="concert-venue">Intuit Dome, Los Angeles · 2024</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/harry_styles.jpeg" alt="Harry Styles">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Harry Styles</p>
+              <p class="concert-venue">Wembley Stadium, London · 2023</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/harry_styles_2.jpeg" alt="Harry Styles">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Harry Styles</p>
+              <p class="concert-venue">Wembley Stadium, London · 2023</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/justice.jpeg" alt="Justice">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Justice</p>
+              <p class="concert-venue">Kaseya Center, Miami · 2025</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/kaytranada.jpeg" alt="Kaytranada">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Kaytranada</p>
+              <p class="concert-venue">Kaseya Center, Miami · 2025</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/bfmv_matt.jpeg" alt="Bullet for My Valentine">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Bullet for My Valentine</p>
+              <p class="concert-venue">Utilita Arena, Cardiff · 2025</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/bfmv_michael.jpeg" alt="Bullet for My Valentine">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Bullet for My Valentine</p>
+              <p class="concert-venue">Utilita Arena, Cardiff · 2025</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/bfmv_with.jpeg" alt="Bullet for My Valentine">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Bullet for My Valentine</p>
+              <p class="concert-venue">Utilita Arena, Cardiff · 2025</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/trivium_matt.jpeg" alt="Trivium">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Trivium</p>
+              <p class="concert-venue">Utilita Arena, Cardiff · 2025</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/brad_paisley.jpeg" alt="Brad Paisley">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Brad Paisley</p>
+              <p class="concert-venue">NRG Stadium, Houston · 2023</p>
+            </div>
+          </div>
+
+          <div class="concert-card">
+            <div class="concert-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/concerts/les_mis.jpeg" alt="Les Misérables">
+            </div>
+            <div class="concert-body">
+              <p class="concert-artist">Les Misérables</p>
+              <p class="concert-venue">Sondheim Theatre, London · 2025</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>ruandom.com &nbsp;·&nbsp; <a href="https://www.instagram.com/_cruano/" target="_blank" rel="noopener" class="footer-link">Instagram</a></p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <img src="" alt="">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    lightbox.addEventListener('click', e => { if (e.target !== lightboxImg) closeLightbox(); });
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+
+</body>
+</html>

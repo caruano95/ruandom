@@ -456,6 +456,63 @@ img { display: block; max-width: 100%; }
   color: var(--muted);
 }
 
+/* ─── Listening Room ─────────────────────────────────────── */
+
+.concerts-section {
+  margin-bottom: 5.5rem;
+}
+
+.concerts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.concert-card {
+  background: var(--card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.concert-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  transform: translateY(-2px);
+}
+
+.concert-photo {
+  aspect-ratio: 1 / 1;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.concert-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.concert-card:hover .concert-photo img { transform: scale(1.03); }
+
+.concert-body {
+  padding: 0.65rem 0.85rem 0.8rem;
+}
+
+.concert-artist {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.1rem;
+}
+
+.concert-venue {
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
 /* ─── Responsive ─────────────────────────────────────────── */
 
 @media (max-width: 700px) {
@@ -465,6 +522,7 @@ img { display: block; max-width: 100%; }
   .spot-meta { display: none; }
   .room-meta { width: 3.5rem; }
   .room-name { font-size: 1.4rem; }
+  .concerts-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 480px) {
