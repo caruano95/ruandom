@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Garage — ruandom</title>
+  <meta name="description" content="My cars.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 82vw;
+      max-height: 92vh;
+      object-fit: contain;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+    }
+    .lightbox-close:hover { color: #fff; }
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,0.6);
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 1rem;
+      line-height: 1;
+      user-select: none;
+    }
+    .lightbox-arrow:hover { color: #fff; }
+    .lightbox-arrow.prev { left: 1rem; }
+    .lightbox-arrow.next { right: 1rem; }
+    .zoomable { cursor: zoom-in; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">ruandom</a>
+      <span class="header-name">Carlos Ruano</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <a href="/" class="back">← Back</a>
+        <h1>The Garage</h1>
+      </div>
+    </div>
+
+    <!-- ── Owned ─────────────────────────────────────────── -->
+    <section class="page-section" id="owned">
+      <div class="container">
+        <div class="section-header">
+          <h2>Owned</h2>
+          <span class="count">4 cars</span>
+        </div>
+
+        <div class="cars-grid">
+
+          <article class="car-card">
+            <div class="car-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/cars/macan.jpeg" alt="2014 Porsche Macan S" onerror="this.parentElement.classList.add('no-photo'); this.style.display='none'; this.parentElement.innerHTML='<span>Photo coming</span>'">
+            </div>
+            <div class="car-card-body">
+            <p class="car-year">2014</p>
+            <h3 class="car-name">Porsche Macan S</h3>
+            </div>
+          </article>
+
+          <article class="car-card">
+            <div class="car-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/cars/corolla.jpeg" alt="2021 Toyota Corolla Hybrid" onerror="this.parentElement.classList.add('no-photo'); this.style.display='none'; this.parentElement.innerHTML='<span>Photo coming</span>'">
+            </div>
+            <div class="car-card-body">
+            <p class="car-year">2021</p>
+            <h3 class="car-name">Toyota Corolla Hybrid</h3>
+            </div>
+          </article>
+
+          <article class="car-card">
+            <div class="car-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/cars/veloster.jpeg" alt="2016 Hyundai Veloster" onerror="this.parentElement.classList.add('no-photo'); this.style.display='none'; this.parentElement.innerHTML='<span>Photo coming</span>'">
+            </div>
+            <div class="car-card-body">
+            <p class="car-year">2016</p>
+            <h3 class="car-name">Hyundai Veloster</h3>
+            </div>
+          </article>
+
+          <article class="car-card">
+            <div class="car-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/cars/trooper.jpg" alt="1997 Isuzu Trooper" onerror="this.parentElement.classList.add('no-photo'); this.style.display='none'; this.parentElement.innerHTML='<span>Photo coming</span>'">
+            </div>
+            <div class="car-card-body">
+            <p class="car-year">1997</p>
+            <h3 class="car-name">Isuzu Trooper</h3>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>ruandom.com &nbsp;·&nbsp; <a href="https://www.instagram.com/_cruano/" target="_blank" rel="noopener" class="footer-link">Instagram</a></p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-arrow prev" aria-label="Previous">&#8592;</button>
+    <img src="" alt="">
+    <button class="lightbox-arrow next" aria-label="Next">&#8594;</button>
+  </div>
+
+  <script>
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const imgs = Array.from(document.querySelectorAll('.zoomable'));
+    let current = 0;
+
+    function openLightbox(index) {
+      current = index;
+      lightboxImg.src = imgs[current].src;
+      lightboxImg.alt = imgs[current].alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    imgs.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function step(dir) {
+      current = (current + dir + imgs.length) % imgs.length;
+      lightboxImg.src = imgs[current].src;
+      lightboxImg.alt = imgs[current].alt;
+    }
+
+    lightbox.addEventListener('click', e => { if (e.target !== lightboxImg) closeLightbox(); });
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); step(-1); });
+    lightbox.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); step(1); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
+    });
+  </script>
+
+</body>
+</html>

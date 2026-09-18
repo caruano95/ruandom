@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Spotting — ruandom</title>
+  <meta name="description" content="Cars worth stopping for, spotted in the wild.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.93);
+      z-index: 200;
+      align-items: center;
+      justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 82vw;
+      max-height: 92vh;
+      object-fit: contain;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.5rem;
+      color: rgba(255,255,255,0.6);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      background: none;
+      border: none;
+      padding: 0.25rem;
+    }
+    .lightbox-close:hover { color: #fff; }
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255,255,255,0.6);
+      font-size: 2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 1rem;
+      line-height: 1;
+      user-select: none;
+    }
+    .lightbox-arrow:hover { color: #fff; }
+    .lightbox-arrow.prev { left: 1rem; }
+    .lightbox-arrow.next { right: 1rem; }
+    .zoomable { cursor: zoom-in; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">ruandom</a>
+      <span class="header-name">Carlos Ruano</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-header">
+      <div class="container">
+        <a href="/" class="back">← Back</a>
+        <h1>Car Spotting</h1>
+      </div>
+    </div>
+
+    <section class="page-section" id="spotted">
+      <div class="container">
+        <div class="section-header">
+          <h2>Spotted</h2>
+          <span class="count">7 spots</span>
+        </div>
+
+        <div class="spots-list">
+
+          <div class="spot-item">
+            <div class="spot-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/spots/spot_miata_edinburgh.jpeg" alt="Mazda MX-5 Miata at Edinburgh Castle">
+            </div>
+            <div>
+              <p class="spot-car">Mazda MX-5 Miata</p>
+            </div>
+            <div class="spot-meta">
+              <p class="spot-location">Edinburgh Castle</p>
+              <p class="spot-country">Scotland 🏴󠁧󠁢󠁳󠁣󠁴󠁿</p>
+            </div>
+          </div>
+
+          <div class="spot-item">
+            <div class="spot-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/spots/spot_dusty_911_paris_basement.jpeg" alt="Dusty Porsche 911 in Paris basement">
+            </div>
+            <div>
+              <p class="spot-car">Dusty Porsche</p>
+            </div>
+            <div class="spot-meta">
+              <p class="spot-location">Underground garage</p>
+              <p class="spot-country">Paris, France 🇫🇷</p>
+            </div>
+          </div>
+
+
+          <div class="spot-item">
+            <div class="spot-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/spots/spot_modified_500_rome.jpeg" alt="Modified Fiat 500s in Rome">
+            </div>
+            <div>
+              <p class="spot-car">Fiat 500 ×2</p>
+            </div>
+            <div class="spot-meta">
+              <p class="spot-location">Rome</p>
+              <p class="spot-country">Italy 🇮🇹</p>
+            </div>
+          </div>
+
+          <div class="spot-item">
+            <div class="spot-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/spots/spot_classic_500_rome.jpeg" alt="Classic Fiat 500 at Castel Sant'Angelo">
+            </div>
+            <div>
+              <p class="spot-car">Fiat 500 Classic</p>
+            </div>
+            <div class="spot-meta">
+              <p class="spot-location">Castel Sant'Angelo</p>
+              <p class="spot-country">Rome, Italy 🇮🇹</p>
+            </div>
+          </div>
+
+          <div class="spot-item">
+            <div class="spot-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/spots/spot_mclaren_gumball_3000.jpeg" alt="McLaren Gumball 3000 in London">
+            </div>
+            <div>
+              <p class="spot-car">McLaren — 2023's Gumball 3000</p>
+            </div>
+            <div class="spot-meta">
+              <p class="spot-location">London</p>
+              <p class="spot-country">United Kingdom 🇬🇧</p>
+            </div>
+          </div>
+
+          <div class="spot-item">
+            <div class="spot-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/spots/spot_gt3_touring_york.jpeg" alt="Porsche 911 GT3 Touring in York">
+            </div>
+            <div>
+              <p class="spot-car">GT3 Touring</p>
+            </div>
+            <div class="spot-meta">
+              <p class="spot-location">York</p>
+              <p class="spot-country">United Kingdom 🇬🇧</p>
+            </div>
+          </div>
+
+          <div class="spot-item">
+            <div class="spot-photo">
+              <img loading="lazy" class="zoomable" src="assets/images/spots/spot_gt3rs_miami.jpeg" alt="Porsche 911 GT3 RS in Miami">
+            </div>
+            <div>
+              <p class="spot-car">Porsche 911 GT3 RS</p>
+            </div>
+            <div class="spot-meta">
+              <p class="spot-location">Miami</p>
+              <p class="spot-country">USA 🇺🇸</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>ruandom.com &nbsp;·&nbsp; <a href="https://www.instagram.com/_cruano/" target="_blank" rel="noopener" class="footer-link">Instagram</a></p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-arrow prev" aria-label="Previous">&#8592;</button>
+    <img src="" alt="">
+    <button class="lightbox-arrow next" aria-label="Next">&#8594;</button>
+  </div>
+
+  <script>
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = lightbox.querySelector('img');
+    const imgs = Array.from(document.querySelectorAll('.zoomable'));
+    let current = 0;
+
+    function openLightbox(index) {
+      current = index;
+      lightboxImg.src = imgs[current].src;
+      lightboxImg.alt = imgs[current].alt;
+      lightbox.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    imgs.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function step(dir) {
+      current = (current + dir + imgs.length) % imgs.length;
+      lightboxImg.src = imgs[current].src;
+      lightboxImg.alt = imgs[current].alt;
+    }
+
+    lightbox.addEventListener('click', e => { if (e.target !== lightboxImg) closeLightbox(); });
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.prev').addEventListener('click', e => { e.stopPropagation(); step(-1); });
+    lightbox.querySelector('.next').addEventListener('click', e => { e.stopPropagation(); step(1); });
+    document.addEventListener('keydown', e => {
+      if (!lightbox.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
+    });
+  </script>
+
+</body>
+</html>
